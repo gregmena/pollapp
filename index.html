@@ -64,11 +64,11 @@
 
 									<!-- Content -->
 
-										<article class="box page-content">
+								<article class="box page-content">
 
-											<header>
+								<header>
 												<h2>Synchronous Polling Demo</h2>
-												<p>Faculty Technology Center Proof of Concept</p>
+												<p>True or False?</p>
 <!-- 												<ul class="meta">
 													<li class="icon fa-clock-o">5 days ago</li>
 													<li class="icon fa-comments"><a href="#">1,024</a></li>
@@ -87,23 +87,33 @@
 											<!-- Get Firebase data, use for bar chart  -->
 											<script>
 
-											var ref = new Firebase("https://pollapp1.firebaseio.com/");
-											var deal;
-											ref.on("value", function(snapshot) {
+							var ref = new Firebase("https://pollapp1.firebaseio.com/");
+							var deal;
+							ref.on("value", function(snapshot) {
 
-											deal = snapshot.val();
+							deal = snapshot.val();
 
 
-												var barChartData = {
-													showTooltips: true,
-													labels : ["Value"],
-													datasets : [
-														{
-															fillColor : "rgba(220,220,220,0.5)",
-															strokeColor : "rgba(220,220,220,0.8)",
-															highlightFill: "rgba(220,220,220,0.75)",
-															highlightStroke: "rgba(220,220,220,1)",
-															data : [deal['answerTotal']]
+							var barChartData = {
+							showTooltips: true,
+							labels : ["True                                   False"],
+									
+							datasets : [
+								{
+								fillColor : "rgba(54, 156, 255, 0.9)",
+								strokeColor : "rgba(54, 156, 255, 0.9)",
+								highlightFill: "rgba(220,220,220,0.75)",
+								highlightStroke: "rgba(220,220,220,1)",
+								label: "True",
+								data : [deal['answerTotal']]
+														},
+																								{
+								fillColor : "rgba(220,220,220,0.5)",
+								strokeColor : "rgba(220,220,220,0.8)",
+								highlightFill: "rgba(220,220,220,0.75)",
+								highlightStroke: "rgba(220,220,220,1)",
+								label: "False",
+								data : [10]
 														},
 
 													]
@@ -111,10 +121,13 @@
 												}
 												
 
-													var ctx = document.getElementById("canvas").getContext("2d");
-													window.myBar = new Chart(ctx).Bar(barChartData, {
-														responsive : true,
-													// show tooltip on completion of animation: http://jsfiddle.net/5gyfykka/14/
+						var ctx = document.getElementById("canvas").getContext("2d");
+						window.myBar = new Chart(ctx).Bar(barChartData, {
+										
+						responsive : true,
+    					animationEasing: "easeOutElastic",
+
+						// show tooltip on completion of animation: http://jsfiddle.net/5gyfykka/14/
 													});
 
 											console.log(deal);
