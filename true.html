@@ -32,10 +32,9 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="index.html">Counter</a></li>
-						<li><a href="true.html">True or False</a></li>
-<!--
+					 	<li><a href="true.html">True or False</a></li>
 
-						<li>
+						<!--<li>
 							<a href="#">Dropdown</a>
 							<ul>
 								<li><a href="#">Lorem ipsum dolor</a></li>
@@ -70,8 +69,8 @@
 								<article class="box page-content">
 
 								<header>
-												<h2>Synchronous Firebase Demo</h2>
-												<p>Counter</p>
+												<h2>Synchronous Polling Demo</h2>
+												<p>True or False?</p>
 <!-- 												<ul class="meta">
 													<li class="icon fa-clock-o">5 days ago</li>
 													<li class="icon fa-comments"><a href="#">1,024</a></li>
@@ -90,7 +89,7 @@
 											<!-- Get Firebase data, use for bar chart  -->
 											<script>
 
-							var ref = new Firebase("https://pollapp1.firebaseio.com/");
+							var ref = new Firebase("https://pollapp1.firebaseio.com/TrueFalsePoll");
 							var deal;
 							ref.on("value", function(snapshot) {
 
@@ -108,7 +107,7 @@
 								highlightFill: "rgba(220,220,220,0.75)",
 								highlightStroke: "rgba(220,220,220,1)",
 								label: "True",
-								data : [deal['answerTotal']]
+								data : [deal['True']]
 														},
 																								{
 								fillColor : "rgba(220,220,220,0.5)",
@@ -116,7 +115,7 @@
 								highlightFill: "rgba(220,220,220,0.75)",
 								highlightStroke: "rgba(220,220,220,1)",
 								label: "False",
-								data : [10]
+								data : [deal['False']]
 														},
 
 													]
